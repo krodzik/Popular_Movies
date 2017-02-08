@@ -39,5 +39,5 @@ project.properties
 *.iws
 
 ##Gradle-based build
-gradle.properties
+.gradle
 build/
