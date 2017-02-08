@@ -6,5 +6,5 @@ App uses [The Movie Database](https://www.themoviedb.org/documentation/api) API 
 You must provide your own API key in order to build the app. 
 When you get it, just paste it to `~/.gradle/gradle.properties` file (create the file if it does not exist already):
 ```gradle
-MOVIE_DB_API_KEY="abc123"
+MyMovieDbApiKey="<UNIQUE_API_KEY>"
 ```
