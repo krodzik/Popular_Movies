@@ -55,8 +55,6 @@ public class MovieGridAdapter extends RecyclerView.Adapter<MovieGridAdapter.View
         final Movie movie = mMovieList.get(position);
         holder.mGridItemContainer.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                Maybe pass bitmap? Is it worth it?
-//                Bitmap posterBitmap = ((BitmapDrawable) holder.mPosterImageView.getDrawable()).getBitmap();
                 if (mActivityCallbacks != null) {
                     mActivityCallbacks.onMovieClick(movie);
                 }
