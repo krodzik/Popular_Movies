@@ -61,8 +61,11 @@ public class MovieDetailFragment extends Fragment {
     private void setPoster() {
         String imageUrl = "http://image.tmdb.org/t/p/w185/" + mMovie.posterPath;
 
-        Picasso.with(getActivity()).load(imageUrl).
-                into(mMoviePoster);
+        Picasso.with(getContext())
+                .load(imageUrl)
+                .placeholder(R.drawable.ic_theaters_24dp)
+                .error(R.drawable.ic_report_problem_24dp)
+                .into(mMoviePoster);
     }
 
     private void setMovieData() {

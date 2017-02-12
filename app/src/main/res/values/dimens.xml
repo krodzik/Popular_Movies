@@ -4,4 +4,12 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="spacing">1dp</dimen>
     <dimen name="grid_column_height">270dp</dimen>
+    <dimen name="movie_detail_margin_top">10dp</dimen>
+    <dimen name="movie_detail_header_bottom_padding">10dp</dimen>
+    <dimen name="movie_detail_header_side_padding">5dp</dimen>
+    <dimen name="text_margin">5dp</dimen>
+    <dimen name="movie_detail_overview_margin_top">20dp</dimen>
+    <dimen name="movie_detail_overview_side_margin">15dp</dimen>
+    <dimen name="movie_detail_bigger_text_size">17sp</dimen>
+    <dimen name="no_connection_text_margin_top">20dp</dimen>
 </resources>

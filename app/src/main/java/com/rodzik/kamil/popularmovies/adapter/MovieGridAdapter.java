@@ -63,8 +63,11 @@ public class MovieGridAdapter extends RecyclerView.Adapter<MovieGridAdapter.View
 
         String imageUrl = "http://image.tmdb.org/t/p/w185/" + movie.posterPath;
 
-        Picasso.with(holder.mPosterImageView.getContext()).load(imageUrl).
-                into(holder.mPosterImageView);
+        Picasso.with(holder.mPosterImageView.getContext())
+                .load(imageUrl)
+                .placeholder(R.drawable.ic_theaters_24dp)
+                .error(R.drawable.ic_report_problem_24dp)
+                .into(holder.mPosterImageView);
     }
 
     @Override
