@@ -24,7 +24,6 @@ import com.rodzik.kamil.popularmovies.model.Movie;
 import com.rodzik.kamil.popularmovies.model.MovieResults;
 import com.rodzik.kamil.popularmovies.network.TheMovieDbService;
 import com.rodzik.kamil.popularmovies.utils.ApiUtils;
-import com.rodzik.kamil.popularmovies.utils.ConnectionUtils;
 import com.rodzik.kamil.popularmovies.utils.SpacesItemDecoration;
 import com.rodzik.kamil.popularmovies.view.activities.MainActivity;
 
@@ -36,6 +35,9 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.rodzik.kamil.popularmovies.utils.Utility.calculateNoOfColumns;
+import static com.rodzik.kamil.popularmovies.utils.Utility.isOnline;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener,
         MovieGridAdapter.FragmentCallbacks {
@@ -76,14 +78,13 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
 
-        int gridColumns = 2;
         int progressViewOffsetStart = 100;
         int progressViewOffsetEnd = 400;
 
         mSwipeRefresh.setColorSchemeResources(R.color.colorPrimaryDark);
         mSwipeRefresh.setProgressViewOffset(true, progressViewOffsetStart, progressViewOffsetEnd);
 
-        final GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), gridColumns);
+        final GridLayoutManager mLayoutManager = new GridLayoutManager(getContext(), calculateNoOfColumns(getContext()));
 
         mMoviesGridView.setLayoutManager(mLayoutManager);
         mMoviesGridView.setHasFixedSize(true);
@@ -133,7 +134,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void downloadMovies() {
-        if (!ConnectionUtils.isOnline(mActivity)) {
+        if (!isOnline(mActivity)) {
             showNoInternetScreen(true);
             return;
         }
